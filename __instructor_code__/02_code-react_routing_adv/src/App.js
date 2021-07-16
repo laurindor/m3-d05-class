@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
@@ -23,7 +23,7 @@ function App () {
           <NavBar color='dark' />
           <Switch>
             {/* <Route path="/private" exact component={PrivatePageView} /> */}
-            <Route path='/private' exact render={props => <PrivatePageView user={this.state.user} {...props} />} />
+            <Route path='/private' exact render={props => <PrivatePageView user={user} {...props} />} />
             <Route path='/second/:name' exact component={SecondPageView} />
             <Route path='/' exact component={FirstPageView} />
           </Switch>

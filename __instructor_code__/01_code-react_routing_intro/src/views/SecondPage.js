@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { useParams } from 'react-router-dom'
+
 const users = [
   { name: 'jose', age: 26, location: 'lisbon' },
   { name: 'santi', age: 25, location: 'buenos aires' },
@@ -7,17 +9,14 @@ const users = [
 ];
 
 function SecondPage(props) {
+    const {name} = useParams()
     const [user, setUser] = useState(null)
-
-useEffect(()=>{
-      fetchData()
-      }, [user])
-
-function fetchData() {
-    const { name } = props.match.params;
-    const user = users.find(user => user.name === name);
-    setUser(user);
-  }
+    console.log("name: ", name)
+    
+    useEffect(()=>{
+      const newUser = users.find(user => user.name === name) 
+      setUser(newUser)
+    })
 
   return(
       (user ? (
