@@ -9,14 +9,10 @@ const users = [
 ];
 
 function SecondPage(props) {
-    const {name} = useParams()
+console.log(props.match.params)
     const [user, setUser] = useState(null)
-    console.log("name: ", name)
     
-    useEffect(()=>{
-      const newUser = users.find(user => user.name === name) 
-      setUser(newUser)
-    })
+  
 
   return(
       (user ? (

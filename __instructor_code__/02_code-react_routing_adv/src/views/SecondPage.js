@@ -9,7 +9,7 @@ const users = [
 ];
 
 function SecondPage(props) {
-  const {name} = useParams()
+  const {name} = props.match.params
   const [user, setUser] = useState(null)
   console.log("name: ", name)
   
